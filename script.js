@@ -18,4 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
         [2, 4, 6],
     ];
 
+    const checkWinner = () => {
+        for (const pattern of winPatterns) {
+            const [a, b, c] = pattern;
+            if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+                gameActive = false;
+                highlightWinningCells(pattern);
+                message.textContent = `${gameBoard[a]} wins!`;
+                return;
+            }
+        }
     
+        if (!gameBoard.includes("") && gameActive) {
+            gameActive = false;
+            message.textContent = "It's a draw!";
+        }
+    };
+    
+
+ 
