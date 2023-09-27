@@ -10,7 +10,7 @@
 * Users can play a game of Tic Tac Toe
 * Users can play against another player 
 
-## Installation
+
 
 
 
