@@ -36,4 +36,37 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     
 
- 
+    const highlightWinningCells = (pattern) => {
+        for (const index of pattern) {
+            cells[index].style.backgroundColor = "#4CAF50";
+        }
+    };
+
+    const handleClick = (cell, index) => {
+        if (gameBoard[index] === "" && gameActive) {
+            gameBoard[index] = currentPlayer;
+            cell.textContent = currentPlayer;
+            cell.classList.add(currentPlayer);
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            checkWinner();
+        }
+    };
+    const restartGame = () => {
+        gameBoard = ["", "", "", "", "", "", "", "", ""];
+        gameActive = true;
+        message.textContent = "";
+        cells.forEach((cell) => {
+            cell.textContent = "";
+            cell.classList.remove("X", "O");
+            cell.style.backgroundColor = "";
+        });
+        currentPlayer = "X";
+    };
+
+    cells.forEach((cell, index) => {
+        cell.addEventListener("click", () => handleClick(cell, index));
+    });
+
+    restartButton.addEventListener("click", restartGame);
+});
+
