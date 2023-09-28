@@ -8,7 +8,7 @@
 
 ## Features
 * Users can play a game of Tic Tac Toe
-* Users can play against another player 
+* Users can play against another player on the same divice 
 
 
 
